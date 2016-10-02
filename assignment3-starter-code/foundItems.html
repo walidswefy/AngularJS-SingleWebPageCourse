@@ -1,0 +1,10 @@
+<br><br><br>
+<div>
+<h3 ng-if="items.length === 0">Nothing Found!</h3>
+<ol ng-if="items.length > 0">
+    <li ng-repeat="item in items">
+        {{ item.name }}&nbsp;&nbsp;&nbsp;&nbsp;
+        <button ng-click="onRemove({index: $index});">Remove</button>
+    </li>
+</ol>
+</div>
