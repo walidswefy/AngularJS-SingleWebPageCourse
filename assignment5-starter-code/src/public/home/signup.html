@@ -1,0 +1,64 @@
+<div id="main-content" class="container" ng-controller="RegistrationController as reg">
+    <form name="regForm" novalidate>
+        <input type="text" name="fname" placeholder="First Name"
+               ng-model="reg.user.fname"
+               required
+               minlength="4"
+               ng-maxlength="10" style="color: #070707 ">
+          <span
+                  ng-if="(regForm.fname.$error.minlength || regForm.fname.$error.required) && regForm.fname.$touched">
+            First name must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.fname.$error.maxlength && regForm.fname.$touched">
+            First name must not be longer than 10 characters
+          </span>
+        <br>
+
+        <input type="text" name="lname" placeholder="Last Name"
+               ng-model="reg.user.lname"
+               required
+               minlength="4"
+               ng-maxlength="10" style="color: #070707 ">
+          <span
+                  ng-if="(regForm.lname.$error.minlength || regForm.lname.$error.required) && regForm.lname.$touched">
+            Last name must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.lname.$error.maxlength && regForm.lname.$touched">
+            Last name must not be longer than 10 characters
+          </span>
+        <br>
+
+        <input type="email" name="email" placeholder="Email"
+               ng-model="reg.user.email"
+               required style="color: #070707 ">
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+        <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+               ng-model="reg.user.phone"
+               pattern="(\d{3})-(\d{3})-(\d{4})" style="color: #070707 ">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+        <br>
+
+        <input type="text" name="categoryName" placeholder="Favorite Dish"
+               ng-model="reg.user.categoryName"
+               style="color: #070707 ">
+          <span ng-if="reg.invalidCategoryName">
+            No such menu number exists
+          </span>
+        <br>
+
+        <button style="color: #070707"
+                ng-disabled="regForm.$invalid"
+                ng-click="reg.submit()">Submit
+        </button>
+
+        <!--<div style="margin-top: 10px;">-->
+        <!--Form valid? {{ regForm.$valid }}-->
+        <!--</div>-->
+    </form>
+</div>
