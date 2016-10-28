@@ -1,7 +1,11 @@
-<div id="main-content" class="container">
+<div id="main-content" class="container" ng-if="myinfoCtrl.user">
     firstname: {{myinfoCtrl.user.fname}}
     lastname: {{myinfoCtrl.user.lname}}
     email: {{myinfoCtrl.user.email}}
     phone: {{myinfoCtrl.user.phone}}
     category name: {{myinfoCtrl.user.categoryName}}
 </div>
+<div id="main-content" class="container" ng-if="!myinfoCtrl.user">
+    Not Signed Up Yet.  <a ui-sref="public.signup">Sign up Now!</a>
+</div>
+
