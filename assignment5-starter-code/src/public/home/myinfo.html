@@ -1,9 +1,12 @@
 <div id="main-content" class="container" ng-if="myinfoCtrl.user">
-    firstname: {{myinfoCtrl.user.fname}}
-    lastname: {{myinfoCtrl.user.lname}}
-    email: {{myinfoCtrl.user.email}}
-    phone: {{myinfoCtrl.user.phone}}
-    category name: {{myinfoCtrl.user.categoryName}}
+    firstname: {{myinfoCtrl.user.fname}}<br/>
+    lastname: {{myinfoCtrl.user.lname}}<br/>
+    email: {{myinfoCtrl.user.email}}<br/>
+    phone: {{myinfoCtrl.user.phone}}<br/>
+    Menu Item name: {{myinfoCtrl.user.category.name}}<br/>
+    Desc: {{myinfoCtrl.user.category.description}}<br/>
+    Price: {{myinfoCtrl.user.category.price_large}}<br/>
+    <img src="https://scastro-course5.herokuapp.com/images/{{myinfoCtrl.user.category.short_name}}"/>
 </div>
 <div id="main-content" class="container" ng-if="!myinfoCtrl.user">
     Not Signed Up Yet.  <a ui-sref="public.signup">Sign up Now!</a>

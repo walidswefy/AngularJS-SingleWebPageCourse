@@ -3,7 +3,7 @@
 
     angular.module('public')
         .service('UserService', UserService)
-        .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
+        .constant('ApiBasePath', "https://scastro-course5.herokuapp.com/menu_items/");
 
 
     UserService.$inject = ['$http', 'ApiBasePath'];
@@ -21,7 +21,7 @@
         service.getItemsForCategory = function (categoryShortName) {
             return $http({
                 method: "GET",
-                url: (ApiBasePath + "/menu_items.json?category=" + categoryShortName)
+                url: (ApiBasePath + categoryShortName + ".json")
             });
         }
     }
